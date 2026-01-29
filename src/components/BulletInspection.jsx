@@ -206,15 +206,19 @@ const BulletInspection = ({ toggleTheme, mode }) => {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "flex-end", // right content stays at right
             mb: 3,
             px: 2,
+            position: "relative", // allows absolute centering of text
           }}
         >
-          {/* LEFT — CASING INSPECTION */}
+          {/* CENTER — CASING INSPECTION */}
           <Typography
             variant="h4"
             sx={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
               fontWeight: 800,
               textTransform: "uppercase",
               letterSpacing: "0.2em",
@@ -231,7 +235,7 @@ const BulletInspection = ({ toggleTheme, mode }) => {
             CASING INSPECTION
           </Typography>
 
-          {/* RIGHT — LOGO + C4I4 + THEME TOGGLE */}
+          {/* RIGHT — LOGO + THEME TOGGLE */}
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -676,46 +680,44 @@ const BulletInspection = ({ toggleTheme, mode }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-       
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={1}
-            justifyContent="center"
-            alignItems="center"
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={1}
+          justifyContent="center"
+          alignItems="center"
+        >
+          <motion.div
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           >
-            <motion.div
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            >
-              <img
-                src={c4i4logo} // or imported image
-                alt="Shield"
-                width={25}
-                height={25}
-              />
-            </motion.div>
+            <img
+              src={c4i4logo} // or imported image
+              alt="Shield"
+              width={25}
+              height={25}
+            />
+          </motion.div>
 
-            <Typography
-              variant="body2"
-              sx={{
-                color: "text.secondary",
-                fontWeight: 500,
-                letterSpacing: 1,
-              }}
+          <Typography
+            variant="body2"
+            sx={{
+              color: "text.secondary",
+              fontWeight: 500,
+              letterSpacing: 1,
+            }}
+          >
+            © 2026{" "}
+            <Link
+              href="https://c4i4.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+              color="inherit"
             >
-              © 2026{" "}
-              <Link
-                href="https://c4i4.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="hover"
-                color="inherit"
-              >
-                C4I4
-              </Link>{" "}
-              Vision Lab • Bullet Casing Inspection System
-            </Typography>
-          </Stack>
-    
+              C4I4
+            </Link>{" "}
+            Vision Lab • Bullet Casing Inspection System
+          </Typography>
+        </Stack>
       </motion.div>
     </Box>
   );
