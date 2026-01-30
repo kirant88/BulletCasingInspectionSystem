@@ -711,10 +711,10 @@ const BulletInspection = ({ toggleTheme, mode }) => {
               target="_blank"
               rel="noopener noreferrer"
               underline="hover"
-              color="inherit"
+              color="primary"
             >
-              C4I4
-            </Link>{" "}
+              C4i4{" "}
+            </Link>
             Vision Lab • Bullet Casing Inspection System
           </Typography>
         </Stack>
